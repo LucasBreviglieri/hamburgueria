@@ -3,11 +3,10 @@ module.exports = {
   content: ["./**/*.{html,js}"],
   theme: {
     extend: {
-      backgroundImage:{
-        "home": "ulr('/assets/bg.png')"
+      backgroundImage: {
+        "home": "url('/assets/bg.png')", 
       }
     },
   },
   plugins: [],
 }
-
