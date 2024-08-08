@@ -129,6 +129,66 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Função para verificar se o restaurante está aberto
+    function checkIfOpen(startHour, endHour) {
+        const now = new Date();
+        const currentHour = now.getHours();
+        return currentHour >= startHour && currentHour < endHour;
+    }
+
+    function checkRestaurantOpen() {
+        const now = new Date();
+        const dayOfWeek = now.getDay(); // 0 (Domingo) a 6 (Sábado)
+
+        const openWeekdaysStart = 16;
+        const openWeekdaysEnd = 22;
+        const openSaturdaysStart = 10;
+        const openSaturdaysEnd = 16;
+
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+            return checkIfOpen(openWeekdaysStart, openWeekdaysEnd);
+        } else if (dayOfWeek === 6 || dayOfWeek === 0) {
+            return checkIfOpen(openSaturdaysStart, openSaturdaysEnd);
+        } else {
+            return false;
+        }
+    }
+
+    // Atualiza o status dos horários
+    function updateHoursStatus() {
+        const now = new Date();
+        const dayOfWeek = now.getDay(); // 0 (Domingo) a 6 (Sábado)
+
+        const hoursWeekdays = document.getElementById("hours-weekdays");
+        const hoursSaturdays = document.getElementById("hours-saturdays");
+
+        const openWeekdaysStart = 16;
+        const openWeekdaysEnd = 22;
+        const openSaturdaysStart = 10;
+        const openSaturdaysEnd = 16;
+
+        const isWeekdaysOpen = checkIfOpen(openWeekdaysStart, openWeekdaysEnd);
+        const isSaturdaysOpen = (dayOfWeek === 6 || dayOfWeek === 0) ? checkIfOpen(openSaturdaysStart, openSaturdaysEnd) : false;
+
+        if (isWeekdaysOpen) {
+            hoursWeekdays.classList.add("open");
+            hoursWeekdays.classList.remove("closed");
+        } else {
+            hoursWeekdays.classList.add("closed");
+            hoursWeekdays.classList.remove("open");
+        }
+
+        if (isSaturdaysOpen) {
+            hoursSaturdays.classList.add("open");
+            hoursSaturdays.classList.remove("closed");
+        } else {
+            hoursSaturdays.classList.add("closed");
+            hoursSaturdays.classList.remove("open");
+        }
+    }
+
+    updateHoursStatus(); // Atualiza o status dos horários quando a página é carregada
+
     // Configurando o evento de entrada no campo de endereço
     if (addressInput) {
         addressInput.addEventListener("input", () => {
@@ -147,6 +207,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Evento de clique no botão de checkout
     if (checkoutBtn) {
         checkoutBtn.addEventListener("click", () => {
+            if (!checkRestaurantOpen()) {
+                Toastify({
+                    text: "Ops, o restaurante está fechado!",
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    stopOnFocus: true,
+                    style: { background: "#ef4444" }
+                }).showToast();
+                return;
+            }
+
             if (cart.length === 0) return;
 
             if (addressInput.value.trim() === "") {
@@ -158,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // API do WPP
             const cartItems = cart.map(item => `${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price.toFixed(2)}`).join("\n");
             const message = encodeURIComponent(`Olá, gostaria de fazer o seguinte pedido:\n\n${cartItems}\n\nEndereço: ${addressInput.value}`);
-            const phone = "19994238702";
+            const phone = "19994185359";
 
             window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 

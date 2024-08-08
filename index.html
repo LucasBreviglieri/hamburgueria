@@ -1,162 +1,311 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/output.css">
-    <link rel="icon" type="image/png" href="/assets/logo.jpeg">
+    <link rel="icon" type="image/png" href="/assets/hamb-1.png">
     <title>Espetaria</title>
 </head>
-
 <body>
     <!-- Cabeçalho -->
-    <header class="w-full h-[420px] bg-zinc-900 bg-pink-200 bg-cover bg-center">
+    <header class="w-full h-[420px] bg-zinc-900 bg-home bg-cover bg-center">
         <div class="w-full h-full flex flex-col justify-center items-center">
-            <img src="./assets/logo.jpeg" alt="Logo DevBurger"
+            <img 
+                src="./assets/hamb-1.png"
+                alt="Logo DevBurger"
                 class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200">
-            <h1 class="text-4xl mt-4 mb-2 font-bold text-black">Tentação Gourmet</h1>
-
-            <span class="text-black font-medium">Rua João Eduardo MacKnight, 1307</span>
-
+            <h1 class="text-4xl mt-4 mb-2 font-bold text-white">Dev Burger</h1>
+                
+            <span class="text-white font-medium">Rua João Eduardo MacKnight, 1307</span>
             <div id="hours-container" class="flex justify-center mt-4 space-x-4">
-                <div id="hours-weekdays"
-                    class="bg-gradient-to-r from-[#FF6F91] to-[#FF1493] text-white p-6 rounded-lg shadow-lg w-full max-w-md transform transition-transform duration-300 hover:scale-105">
-                    <div class="flex items-center space-x-4">
-                        <i class="fas fa-calendar-week text-3xl text-white"></i>
-                        <div class="text-left">
-                            <p class="font-semibold text-2xl mb-2">Horário de Funcionamento</p>
-                            <p class="font-bold text-xl">Segunda a Domingo: 08:00 - 22:00</p>
+                <!-- Horário de Segunda a Sexta -->
+                <div id="hours-weekdays" class="text-white p-4 rounded-lg shadow-lg w-full max-w-xs transform transition-transform duration-300">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-calendar-week text-2xl"></i>
+                        <div class="text-right">
+                            <p class="font-semibold">Seg á Sex</p>
+                            <p class="font-bold text-lg">16:00 - 22:00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Horário de Sábados -->
+                <div id="hours-saturdays" class="text-white p-4 rounded-lg shadow-lg w-full max-w-xs transform transition-transform duration-300">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-calendar-day text-2xl"></i>
+                        <div class="text-right">
+                            <p class="font-semibold">Sábado</p>
+                            <p class="font-bold text-lg">10:00 - 16:00</p>
                         </div>
                     </div>
                 </div>
             </div>
-                                                            
+            
         </div>
     </header>
     <!-- Fim do cabeçalho -->
 
-    <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">Conheça o nosso cardapio</h2> <br>
+    <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">Conheça o nosso menu</h2>
 
     <div id="menu">
         <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
-            <!-- Item do menu 1 -->
+ <!-- Item do menu 1 -->
+ <div class="flex gap-2">
+    <img src="./assets/hamb-1.png" alt="Hamburguer Smash" class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" />
+    <div>
+        <p class="font-bold">Hamburguer Smash</p>
+        <p class="text-sm">Hambúrguer com camadas suculentas de carne e uma variedade de toppings.</p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 18,90</p>
+            <button class="bg-gray-900 px-5 rounded add-to-cart-btn"  data-name="Hamburguer Smash" data-price="18.90" data-image-url="./assets/hamb-1.png">
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Fim do item do menu 1 -->
+
+<!-- Item do menu 2 -->
+<div class="flex gap-2">
+    <img 
+        src="./assets/hamb-2.png" 
+        alt="Hamburguer Duplo"
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Hamburguer Duplo</p>
+        <p class="text-sm">Duas camadas suculentas de carne com toppings especiais.</p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 32,90</p>
+            <button 
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Hamburguer Duplo"
+                data-price="32.90"
+                data-image-url="./assets/hamb-2.png"
+            >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Fim do item do menu 2 -->
+
+<!-- Item do menu 3 -->
+<div class="flex gap-2">
+    <img 
+        src="./assets/hamb-3.png" 
+        alt="Hamburguer Salad"
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Hamburguer Salad</p>
+        <p class="text-sm">Hamburguer leve com acompanhamento de salada fresca.</p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 35,90</p>
+            <button 
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Hamburguer Salad"
+                data-price="35.90"
+                data-image-url="./assets/hamb-3.png"
+            >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Fim do item do menu 3 -->
+
+<!-- Item do menu 4 -->
+<div class="flex gap-2">
+    <img 
+        src="./assets/hamb-4.png" 
+        alt="Hamburguer da Casa"
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Hamburguer da Casa</p>
+        <p class="text-sm">Camadas generosas de carne suculenta acompanhada de um mix de toppings exclusivos.</p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 29,90</p>
+            <button 
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Hamburguer da Casa"
+                data-price="29.90"
+                data-image-url="./assets/hamb-4.png"
+            >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Fim do item do menu 4 -->
+
+<!-- Item do menu 5 -->
+<div class="flex gap-2">
+    <img 
+        src="./assets/hamb-5.png" 
+        alt="Hamburguer Gourmet"
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Hamburguer Gourmet</p>
+        <p class="text-sm">Combinado com as melhores carnes e ingredientes premium e molho especial.</p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 39,90</p>
+            <button 
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Hamburguer Gourmet"
+                data-price="39.90"
+                data-image-url="./assets/hamb-5.png"
+            >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Fim do item do menu 5 -->
+
+<!-- Item do menu 6 -->
+<div class="flex gap-2">
+    <img 
+        src="./assets/hamb-6.png" 
+        alt="Hamburguer Especial"
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Hamburguer Especial</p>
+        <p class="text-sm">Hamburguer selecionado com um toque especial de sabor e frescor.</p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 34,90</p>
+            <button 
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Hamburguer Especial"
+                data-price="34.90"
+                data-image-url="./assets/hamb-6.png"
+            >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Fim do item do menu 6 -->
+
+<!-- Item do menu 7 -->
+<div class="flex gap-2">
+    <img 
+        src="./assets/hamb-7.png" 
+        alt="Hamburguer Artesanal"
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Hamburguer Artesanal</p>
+        <p class="text-sm">Hambúrguer artesanal que combina ingredientes premium e suculentos.</p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 41,90</p>
+            <button 
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Hamburguer Artesanal"
+                data-price="41.90"
+                data-image-url="./assets/hamb-7.png"
+            >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Fim do item do menu 7 -->
+
+<!-- Item do menu 8 -->
+<div class="flex gap-2">
+    <img 
+        src="./assets/hamb-8.png" 
+        alt="Hamburguer Vegano"
+        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+    />
+    <div>
+        <p class="font-bold">Hamburguer Vegano</p>
+        <p class="text-sm">Feito com ingredientes veganos selecionados e frescos de alta qualidade.</p>
+        <div class="flex items-center gap-2 justify-between mt-3">
+            <p class="font-bold text-lg">R$ 28,90</p>
+            <button 
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Hamburguer Vegano"
+                data-price="28.90"
+                data-image-url="./assets/hamb-8.png"
+            >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Fim do item do menu 8 -->
+
+        </main>
+        
+        <div class="mx-auto max-w-7xl px-2 my-2">
+            <h2 class="font-bold text-3xl">Bebidas</h2>
+        </div>
+
+        <!-- Grid de bebidas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
+            <!-- Item de bebida 1 -->
             <div class="flex gap-2">
-                <img src="./assets/doce-1.jpeg" alt="Doce 1"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" />
+                <img 
+                    src="./assets/refri-1.png" 
+                    alt="Coca lata"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+                />
                 <div>
-                    <p class="font-bold"> 🍫</p>
-                    <p class="text-sm"> Copo da Felicidade especial e delicioso de Maracujá com nutella.</p>
+                    <p class="font-bold">Coca Lata</p>
+                    <p class="text-sm">Acompanhamento refresco clássico gelado e que combina com tudo.</p>
                     <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 18,90</p>
-                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn" data-name="Copo da Felicidade" data-price="18.90"
-                            data-image-url="./assets/doce-1.jpeg">
+                        <p class="font-bold text-lg">R$ 6,00</p>
+                        <button 
+                            class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                            data-name="Coca Lata"
+                            data-price="6.00"
+                            data-image-url="./assets/refri-1.png"
+                        >
                             <i class="fa fa-cart-plus text-lg text-white"></i>
                         </button>
                     </div>
                 </div>
             </div>
-            <!-- Fim do item do menu 1 -->
-
-            <!-- Item do menu 2 -->
+            <!-- Fim do item de bebida 1 -->
+            
+            <!-- Item de bebida 2 -->
             <div class="flex gap-2">
-                <img src="./assets/doce-2.jpeg" alt="Doce 2"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" />
+                <img 
+                    src="./assets/refri-2.png" 
+                    alt="Guaraná Lata"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+                />
                 <div>
-                    <p class="font-bold">Doce Tentação 🍓</p>
-                    <p class="text-sm">Feito com morango, uma experiência tentação de sabor.</p>
+                    <p class="font-bold">Guaraná Lata</p>
+                    <p class="text-sm">Acompanhamento refrescante e saboroso com o nosso sabor brasileiro.</p>
                     <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 32,90</p>
-                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn" data-name="Doce Tentação" data-price="32.90"
-                            data-image-url="./assets/doce-2.jpeg">
+                        <p class="font-bold text-lg">R$ 6,50</p>
+                        <button 
+                            class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                            data-name="Guaraná Lata"
+                            data-price="6.50"
+                            data-image-url="./assets/refri-2.png"
+                        >
                             <i class="fa fa-cart-plus text-lg text-white"></i>
                         </button>
                     </div>
                 </div>
             </div>
-            <!-- Fim do item do menu 2 -->
-
-            <!-- Item do menu 3 -->
-            <div class="flex gap-2">
-                <img src="./assets/doce-3.jpeg" alt="Doce 3"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" />
-                <div>
-                    <p class="font-bold">Pudim de chocolate 🍮</p>
-                    <p class="text-sm">Pudim gostoso de chocolate altamente viciante e muito saboroso.</p>
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 35,90</p>
-                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn" data-name="Pudim de chocolate" data-price="35.90"
-                            data-image-url="./assets/doce-3.jpeg">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Fim do item do menu 3 -->
-
-            <!-- Item do menu 4 -->
-            <div class="flex gap-2">
-                <img src="./assets/doce-4.jpeg" alt="Doce 4"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" />
-                <div>
-                    <p class="font-bold">Surpresa de uva 🍇</p>
-                    <p class="text-sm">A tentação em versão de uva, chocolate e com o nosso segredo da casa.</p>
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 29,90</p>
-                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn" data-name="Surpresa de uva" data-price="29.90"
-                            data-image-url="./assets/doce-4.jpeg">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Fim do item do menu 4 -->
-
-            <!-- Item do menu 5 -->
-            <div class="flex gap-2">
-                <img src="./assets/doce-5.jpeg" alt="Doce 5"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" />
-                <div>
-                    <p class="font-bold">Surpresa de Morango 🍓</p>
-                    <p class="text-sm">A tentação do morangos em que seu paladar ira se surpreender.</p>
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 39,90</p>
-                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn" data-name="Surpresa de Morango" data-price="39.90"
-                            data-image-url="./assets/doce-5.jpeg">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Fim do item do menu 5 -->
-
-            <!-- Item do menu 6 -->
-            <div class="flex gap-2">
-                <img src="./assets/doce-6.jpeg" alt="Doce 6"
-                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300" />
-                <div>
-                    <p class="font-bold">Pudim de Prestígio 🍮</p>
-                    <p class="text-sm">O melhor pudim de prestígio de toda a região feito com muito carinho e amor.</p>
-                    <div class="flex items-center gap-2 justify-between mt-3">
-                        <p class="font-bold text-lg">R$ 34,90</p>
-                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn" data-name="Pudim de Prestígio" data-price="34.90"
-                            data-image-url="./assets/doce-6.jpeg">
-                            <i class="fa fa-cart-plus text-lg text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Fim do item do menu 6 -->
-    </div> <br><br>
-
+            <!-- Fim do item de bebida 2 -->
+        </div>
+        <!-- Fim do grid de bebidas -->
+    </div>
+    
     <!-- Modal do carrinho -->
     <div id="cart-modal" class="fixed inset-0 flex items-center justify-center bg-black/70 hidden z-50 overflow-auto">
-        <div id="cart-modal-content"
-            class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[90vh] overflow-y-auto relative">
+        <div id="cart-modal-content" class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[90vh] overflow-y-auto relative">
             <button id="close-modal-btn" class="absolute top-3 right-3 text-gray-600 hover:text-gray-800">
                 <i class="fa fa-times text-xl"></i>
             </button>
@@ -164,21 +313,25 @@
             <div id="cart-items" class="space-y-4 mb-4"></div>
             <p class="font-bold text-lg">Total: <span id="cart-total">R$ 0,00</span></p>
             <p class="font-bold text-lg mt-4">Endereço Completo para Entrega:</p>
-            <input type="text" placeholder="Digite seu endereço completo" id="address"
-                class="w-full border-2 border-gray-300 p-2 rounded-md my-2" />
+            <input 
+                type="text" 
+                placeholder="Digite seu endereço completo" 
+                id="address"
+                class="w-full border-2 border-gray-300 p-2 rounded-md my-2"
+            />
             <p class="text-red-500 hidden" id="address-warn">Por favor, forneça seu endereço completo.</p>
             <div class="flex items-center justify-between mt-5">
-                <button id="close-modal-btn-main"
-                    class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">Fechar</button>
-                <button id="checkout-btn"
-                    class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Finalizar Pedido</button>
+                <button id="close-modal-btn-main" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">Fechar</button>
+                <button id="checkout-btn" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Finalizar Pedido</button>
             </div>
         </div>
     </div>
     <!-- Fim do modal do carrinho -->
-
-    <footer class="w-full bg-red-600 py-3 fixed bottom-0 z-40 flex items-center justify-center">
-        <button class="flex items-center text-white font-bold" id="cart-btn">
+    
+    <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center">
+        <button 
+            class="flex items-center text-white font-bold"
+            id="cart-btn">
             (<span id="cart-count">0</span>)
             Meu Carrinho
             <i class="fa fa-cart-plus text-lg text-white"></i>
@@ -188,5 +341,4 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -6,3 +6,11 @@ body{
     background-color: #f6f7f8;
 }
 
+/* Classes para status aberto e fechado */
+.open {
+    background: linear-gradient(to right, #34d399, #10b981); /* Verde claro */
+}
+
+.closed {
+    background: linear-gradient(to right, #ef4444, #dc2626); /* Vermelho */
+}
